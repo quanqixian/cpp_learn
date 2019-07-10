@@ -22,6 +22,10 @@ void Demo::StaticFunc(const char*s)
 {
 	printf("StaticFunc:%s\n",s);
 }
+/*
+静态成员函数，没有直接调用变量i，而是通过对象来间接调用变量i，这说明什么呢？
+说明：静态成员函数不能访问普通成员变量（函数），需通过对象间接访问成员变量（函数）
+*/
 void Demo::StaticSetI(Demo&d,int v)
 {
 	d.i=v;
