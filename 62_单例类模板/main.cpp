@@ -7,7 +7,7 @@ class Test
 	friend class Singleton<Test>;//当前类需要使用单例模式 
 	Test(const Test&);
 	Test& operator=(const Test&);
-	Test(){}
+	Test(){}//构造函数被定义为private,所以在外部不能直接调用，但是友缘类可以调用。
 public:
 	void print()
 	{
