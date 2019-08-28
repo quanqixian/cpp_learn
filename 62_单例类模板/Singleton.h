@@ -4,12 +4,12 @@
 template <typename T>
 class Singleton
 {
-	static T* c_instance;
+	static T* c_instance;//声明
 public:
 	static T* GetInstance();
 };
 template <typename T>
-T*Singleton<T>::c_instance=NULL;
+T*Singleton<T>::c_instance=NULL;//定义
 
 template<typename T>
 T* Singleton<T>::GetInstance()
