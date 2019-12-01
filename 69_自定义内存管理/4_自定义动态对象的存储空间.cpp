@@ -1,3 +1,6 @@
+/**
+ *自定义动态对象的存储空间 
+ */
 #include <iostream>
 #include <string>
 #include <cstdlib>
