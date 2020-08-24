@@ -6,30 +6,37 @@ Thread::Thread()
 
 bool Thread::start()
 {
-    if(isRunning == false)
+    if(m_isRunning == false)
     {
+        /* 修改运行标志要在创建线程之前 */
+        m_isRunning = true;
+
         /* 注意这里传入了this指针 */
         if(pthread_create(&threadID, NULL, threadProcess, this) != 0)
         {
             cout << __FILE__<<":"<<__LINE__<<" pthread_create failed!" << endl;
-            return false;
+            m_isRunning = false;
         }
-        isRunning = true;
     }
-    return isRunning;
+    return m_isRunning;
 }
 
 bool Thread::stop()
 {
     void *thrdRet = NULL;
 
-    if(isRunning)
+    if(m_isRunning)
     {
-        isRunning = false;
+        m_isRunning = false;
         pthread_join(threadID, &thrdRet);
     }
 
-    return !isRunning;
+    return !m_isRunning;
+}
+
+bool Thread::isRunning()const
+{
+    return m_isRunning;
 }
 
 void * Thread::threadProcess(void * arg)
