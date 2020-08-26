@@ -4,7 +4,7 @@ class TesetThread :public Thread
 {
     void run()
     {
-        while(true)
+        while(isRunning())
         {
             cout<<"hello"<<endl;
             sleep(1);
