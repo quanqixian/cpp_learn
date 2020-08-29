@@ -18,20 +18,41 @@
 
 编写代码：
 
-```
+```c++
+#include <stdio.h>
 
+int main()
+{
+    const int c = 0;
+    int* p = (int*)&c;
+    
+    printf("Begin...\n");
+    
+    *p = 5;
+    
+    printf("c = %d\n", c);
+    
+    printf("End...\n");
+    return 0;
+}
 ```
 
 使用gcc编译并运行
 
-```
-
+```shell
+$ ./a.out 
+Begin...
+c = 5
+End...
 ```
 
 使用g++编译并运行
 
-```
-
+```shell
+$ ./a.out 
+Begin...
+c = 0
+End...
 ```
 
 
