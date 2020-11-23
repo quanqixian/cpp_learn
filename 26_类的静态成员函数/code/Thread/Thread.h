@@ -16,7 +16,7 @@ protected:
     virtual void run(void) = 0;        /* 由子类重写run函数 */
 public:
     Thread();
-    ~Thread();
+    virtual ~Thread();
     bool start(void);
     bool stop(void);
     bool isRunning(void)const;
